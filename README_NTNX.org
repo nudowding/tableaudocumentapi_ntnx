@@ -22,7 +22,7 @@
     #+end_src
     Update the version to a higher number. This is needed if using pip to upgrade.
 *** build wheel
-    #+begin_src sh :results drawer :wrap example
+    #+begin_src sh :results drawer :wrap example :exports both
       bazel build //:wheel.dist
     #+end_src
 
@@ -39,7 +39,7 @@
     #+end_example
     :end:
 *** Wheel will be in =bazel-bin= dir
-    #+begin_src sh :results drawer :wrap example
+    #+begin_src sh :results drawer :wrap example :exports both
       ls bazel-bin
     #+end_src
 
