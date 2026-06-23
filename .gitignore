@@ -71,6 +71,7 @@ target/
 .DS_Store
 .idea
 .python-version
+.envrc
 
 #Editor things
 *.sublime-project

@@ -51,4 +51,38 @@
     wheel.metadata.txt
     wheel.name
     #+end_example
-    
+
+* instructions for publishing package
+
+** Configure environment
+
+#+begin_src bash -n
+export TWINE_USERNAME=svc.daas.devops@nutanix.com
+export TWINE_PASSWORD=xxxx
+export TWINE_REPOSITORY_URL=https://artifactory.dyn.ntnxdpro.com/artifactory/local-nutanix-dspaas-pypi
+export TWINE_CERT=$PWD/tools/artifactory.dyn.ntnxdpro.com.pem
+#+end_src
+
+You will need to get the password for =svc.daas.devops@nutanix.com= from Arun
+
+** Publish the package
+
+#+begin_src bash -n :results drawer :wrap example :exports both
+bazel run wheel.publish
+#+end_src
+
+#+RESULTS:
+#+begin_example
+INFO: Analyzed target //:wheel.publish (0 packages loaded, 0 targets configured).
+INFO: Found 1 target...
+Target //:wheel.publish up-to-date:
+  bazel-bin/wheel.publish_script
+INFO: Elapsed time: 0.247s, Critical Path: 0.00s
+INFO: 1 process: 1 internal.
+INFO: Build completed successfully, 1 total action
+INFO: Running command line: bazel-bin/wheel.publish_script upload './wheel_dist/*'
+Uploading distributions to https://artifactory.dyn.ntnxdpro.com/artifactory/api/pypi/nutanix-dspaas-pypi
+Uploading tableaudocumentapi_ntnx-0.11.2-py3-none-any.whl
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.6/18.6 kB • 00:00 • 11.1 MB/s
+#+end_example
+

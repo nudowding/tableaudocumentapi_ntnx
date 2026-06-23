@@ -78,4 +78,5 @@ py_wheel(
     ],
     version = "0.11.3",
     deps = ["//tableaudocumentapi"],
+    twine = "@rules_python//tools/publish:twine",
 )
